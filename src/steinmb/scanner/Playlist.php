@@ -25,6 +25,11 @@ final class Playlist
         return array_diff($fileNames, ['..', '.']);
     }
 
+    public function fileNamesFlatten(): string
+    {
+        return implode(', ', $this->getAllFilenames());
+    }
+
     public function getFileContent(string $fileName)
     {
         return file_get_contents($this->directory . '/' . $fileName);

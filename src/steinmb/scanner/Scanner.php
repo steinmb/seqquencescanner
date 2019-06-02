@@ -35,13 +35,13 @@ final class Scanner {
             $hit = $this->matchStart($result);
 
             if ($hit) {
-                echo $result->getFileName() . PHP_EOL;
-                echo $result->trackListFlatten() . PHP_EOL;
+                echo 'Matched: ' . $result->getFileName() . PHP_EOL;
+                echo 'Complete pattern: ' . $result->trackListFlatten() . PHP_EOL;
                 $match++;
             }
         }
 
-        echo 'Found ' . $match . PHP_EOL;
+        echo 'Total matched pattern found: ' . $match . PHP_EOL;
     }
 
     private function getTrackList(string $content): array
