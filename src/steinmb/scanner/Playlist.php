@@ -30,6 +30,21 @@ final class Playlist
         return implode(', ', $this->fileNames());
     }
 
+    public function numberOfValidFiles(): int
+    {
+        $results = [];
+
+        foreach ($this->fileNames() as $fileName) {
+            preg_match_all('/\d{5}/', $fileName, $matches);
+
+            if ($matches[0]) {
+                $results[] = $matches[0];
+            }
+        }
+
+        return count($results);
+    }
+
     public function getFileContent(string $fileName)
     {
         return file_get_contents($this->directory . '/' . $fileName);

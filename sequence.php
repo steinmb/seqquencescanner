@@ -13,8 +13,13 @@ if (count($argv) !== 3) {
 
 $directoryToScan = $argv[1];
 $playlist = new scanner\Playlist($directoryToScan);
-echo 'Found: ' . count($playlist->fileNames()). ' mpls tracks to analyze.' . PHP_EOL;
 
+if (!$playlist->numberOfValidFiles()) {
+    echo 'Found no files to analyze. ' . PHP_EOL;
+    exit;
+}
+
+echo 'Found: ' . $playlist->numberOfValidFiles() . ' mpls tracks to analyze.' . PHP_EOL;
 $string = str_replace(' ', '', $argv[2]);
 $sequence = explode(',', $string);
 $scanner = new scanner\Scanner($playlist, $sequence);
