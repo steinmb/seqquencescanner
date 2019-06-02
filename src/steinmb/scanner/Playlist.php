@@ -35,7 +35,7 @@ final class Playlist
         $results = [];
 
         foreach ($this->fileNames() as $fileName) {
-            preg_match_all('/\d{5}/', $fileName, $matches);
+            preg_match_all('/\d{5}.mpls/', $fileName, $matches);
 
             if ($matches[0]) {
                 $results[] = $matches[0];
