@@ -14,16 +14,34 @@ final class Scanner {
         $this->sequence = $sequence;
     }
 
-    public function searchSequence(): array
+    private function trackList(): array
     {
-        $result = [];
+        $results = [];
 
         foreach ($this->playlist->getAllFilenames() as $fileName) {
             $content = $this->playlist->getFileContent($fileName);
-            $result[] = Tracks::fromString($fileName, $this->getTrackList($content));
+            $results[] = Tracks::fromString($fileName, $this->getTrackList($content));
         }
 
-        return $result;
+        return $results;
+    }
+
+    public function searchSequence()
+    {
+        $match = 0;
+        $results = $this->trackList();
+
+        foreach ($results as $result) {
+            $hit = $this->matchStart($result);
+
+            if ($hit) {
+                echo $result->getFileName() . PHP_EOL;
+                echo $result->trackListFlatten() . PHP_EOL;
+                $match++;
+            }
+        }
+
+        echo 'Found ' . $match . PHP_EOL;
     }
 
     private function getTrackList(string $content): array
@@ -33,11 +51,10 @@ final class Scanner {
         return $matches[0];
     }
 
-    public function matchStart(Tracks $tracks)
+    private function matchStart(Tracks $tracks): int
     {
         $match = 0;
         $list = $tracks->trackListFlatten();
-//        echo $list . PHP_EOL;
         $pattern = implode(',', $this->sequence);
 
         if (false !== strpos($list, $pattern)) {
@@ -45,12 +62,6 @@ final class Scanner {
         }
 
         return $match;
-    }
-
-    public function matchEnd(Tracks $tracks)
-    {
-        print_r($this->sequence);
-        print_r($tracks->trackList());
     }
 
 }
