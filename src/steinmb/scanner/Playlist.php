@@ -19,7 +19,7 @@ final class Playlist
         }
     }
 
-    public function getAllFilenames(): array
+    public function fileNames(): array
     {
         $fileNames = scandir($this->directory);
         return array_diff($fileNames, ['..', '.']);
@@ -27,7 +27,7 @@ final class Playlist
 
     public function fileNamesFlatten(): string
     {
-        return implode(', ', $this->getAllFilenames());
+        return implode(', ', $this->fileNames());
     }
 
     public function getFileContent(string $fileName)

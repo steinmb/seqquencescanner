@@ -18,7 +18,7 @@ final class Scanner {
     {
         $results = [];
 
-        foreach ($this->playlist->getAllFilenames() as $fileName) {
+        foreach ($this->playlist->fileNames() as $fileName) {
             $content = $this->playlist->getFileContent($fileName);
             $results[] = Tracks::fromString($fileName, $this->getTrackList($content));
         }
