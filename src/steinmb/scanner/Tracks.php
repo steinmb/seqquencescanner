@@ -33,13 +33,19 @@ final class Tracks
         return $this->fileName;
     }
 
-    public function getTrackList(): array
+    public function trackList(): array
     {
         return $this->list;
     }
 
+    public function trackListFlatten(): string
+    {
+        return implode(',', $this->list);
+    }
+
     public function numberOfTracks(): int
     {
-        return count($this->list[0]);
+        return count($this->list);
     }
+
 }
