@@ -1,0 +1,17 @@
+{
+    "name": "steinmb/sekvensscanner",
+    "description": "Scan for right playlist sekvens",
+    "authors": [
+        {
+            "name": "Stein Magne Bjorklund",
+            "email": "steinmb@smbjorklund.com"
+        }
+    ],
+    "require": {},
+
+    "autoload": {
+        "psr-4": {
+            "steinmb\\scanner\\":"src"
+        }
+    }
+}
