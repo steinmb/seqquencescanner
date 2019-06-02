@@ -1,6 +1,6 @@
 {
     "name": "steinmb/sekvensscanner",
-    "description": "Scan for right playlist sekvens",
+    "description": "Scan for right playlist file sequence",
     "authors": [
         {
             "name": "Stein Magne Bjorklund",

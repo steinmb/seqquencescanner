@@ -20,6 +20,7 @@ if (!$playlist->numberOfValidFiles()) {
 }
 
 echo 'Found: ' . $playlist->numberOfValidFiles() . ' mpls tracks to analyze.' . PHP_EOL;
+
 $string = str_replace(' ', '', $argv[2]);
 $sequence = explode(',', $string);
 $scanner = new scanner\Scanner($playlist, $sequence);
