@@ -1,6 +1,7 @@
 {
-    "name": "steinmb/sekvensscanner",
-    "description": "Scan for right playlist file sequence",
+    "name": "steinmb/sequencescanner",
+    "description": "Scan for right Blue Ray playlist file sequence",
+    "license": "LGPL-3.0-or-later",
     "authors": [
         {
             "name": "Stein Magne Bjorklund",
