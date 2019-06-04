@@ -10,6 +10,15 @@ Quick tool I needed to do match up a sequence with stubborn Blue Ray discs conta
     composer install
     composer dumpautoload -o
     
-Test with the client code 
+Test with client code example
 
     php sequence.php <directory> <comma separated list of sequences>
+
+## Example on how to use
+
+```php
+$directoryToScan = 'location of blue ray PLAYLIST';
+$sequence = '00506, 00500, 00001, 00502';
+$playlist = new scanner\Playlist($directoryToScan);
+$scanner = new scanner\Scanner($playlist, $sequence);
+$scanner->searchSequence();
