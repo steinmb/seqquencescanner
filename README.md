@@ -17,8 +17,12 @@ Test with client code example
 ## Example on how to use
 
 ```php
-$directoryToScan = 'location of blue ray PLAYLIST';
-$sequence = '00506, 00500, 00001, 00502';
+include_once __DIR__ . '/vendor/autoload.php';
+use steinmb\scanner;
+
+$directoryToScan = 'Volumes/HACKERS/BDMV/PLAYLIST';
+$sequence = [00506, 00500, 00001, 00502];
 $playlist = new scanner\Playlist($directoryToScan);
 $scanner = new scanner\Scanner($playlist, $sequence);
 $scanner->searchSequence();
+```
