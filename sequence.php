@@ -1,9 +1,9 @@
-<?php
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 include_once __DIR__ . '/vendor/autoload.php';
 
-use steinmb\scanner;
+use steinmb\scanner\Scanner;
+use steinmb\scanner\Playlist;
 
 if (count($argv) !== 3) {
     echo 'Usage: php sequence.php <directory to scan> <comma separated list of mpls tracks>' . PHP_EOL;
@@ -12,7 +12,7 @@ if (count($argv) !== 3) {
 }
 
 $directoryToScan = $argv[1];
-$playlist = new scanner\Playlist($directoryToScan);
+$playlist = new Playlist($directoryToScan);
 
 if (!$playlist->numberOfValidFiles()) {
     echo 'Found no files to analyze. ' . PHP_EOL;
@@ -20,8 +20,7 @@ if (!$playlist->numberOfValidFiles()) {
 }
 
 echo 'Found: ' . $playlist->numberOfValidFiles() . ' mpls tracks to analyze.' . PHP_EOL;
-
 $string = str_replace(' ', '', $argv[2]);
 $sequence = explode(',', $string);
-$scanner = new scanner\Scanner($playlist, $sequence);
+$scanner = new Scanner($playlist, $sequence);
 $scanner->searchSequence();

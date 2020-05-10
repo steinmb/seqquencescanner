@@ -18,11 +18,12 @@ Test with client code example
 
 ```php
 include_once __DIR__ . '/vendor/autoload.php';
-use steinmb\scanner;
+use steinmb\scanner\Playlist;
+use steinmb\scanner\Scanner;
 
 $directoryToScan = 'Volumes/HACKERS/BDMV/PLAYLIST';
 $sequence = [00506, 00500, 00001, 00502];
-$playlist = new scanner\Playlist($directoryToScan);
-$scanner = new scanner\Scanner($playlist, $sequence);
+$playlist = new Playlist($directoryToScan);
+$scanner = new Scanner($playlist, $sequence);
 $scanner->searchSequence();
 ```
