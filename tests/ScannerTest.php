@@ -1,10 +1,8 @@
-<?php
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
-namespace steinmb\scanner;
-
-use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
+use steinmb\scanner\Playlist;
+use steinmb\scanner\Tracks;
 
 final class ScannerTest extends TestCase
 {
