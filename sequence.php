@@ -7,7 +7,7 @@ use steinmb\scanner\Playlist;
 
 if (count($argv) !== 3) {
     echo 'Usage: php sequence.php <directory to scan> <comma separated list of mpls tracks>' . PHP_EOL;
-    echo 'Example: php sequence.php /Users/steinmb/PLAYLIST "00506, 00500, 00001, 00502"' . PHP_EOL;
+    echo 'Example: php sequence.php /Volumes/HACKERS/BDMV/PLAYLIST "00506, 00500, 00001, 00502"' . PHP_EOL;
     exit;
 }
 
