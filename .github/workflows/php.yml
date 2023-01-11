@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   phpunit:
-    runs-on: ubuntu-latest
+    runs-on: php-latest
     steps:
       - uses: actions/checkout@v1
       - name: Validate composer files
