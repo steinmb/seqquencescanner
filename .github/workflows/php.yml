@@ -1,0 +1,15 @@
+name: CI
+
+on: [push]
+
+jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Validate composer files
+        run: composer validate --no-check-all --strict
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
+      - name: Run tests
+        run: php vendor/bin/phpunit tests
