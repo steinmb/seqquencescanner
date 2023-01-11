@@ -10,8 +10,8 @@ namespace steinmb\scanner;
  */
 final class Tracks
 {
-    private $list;
-    private $fileName;
+    private ?array $list = null;
+    private ?string $fileName = null;
 
     private function __construct()
     {
@@ -43,7 +43,7 @@ final class Tracks
 
     public function numberOfTracks(): int
     {
-        return count($this->list);
+        return is_countable($this->list) ? count($this->list) : 0;
     }
 
 }

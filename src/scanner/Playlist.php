@@ -6,7 +6,7 @@ use InvalidArgumentException;
 
 final class Playlist
 {
-    private $directory;
+    private ?string $directory = null;
 
     public function __construct(string $directory)
     {
@@ -34,7 +34,7 @@ final class Playlist
         $results = [];
 
         foreach ($this->fileNames() as $fileName) {
-            preg_match_all('/\d{5}.mpls/', $fileName, $matches);
+            preg_match_all('/\d{5}.mpls/', (string) $fileName, $matches);
 
             if ($matches[0]) {
                 $results[] = $matches[0];

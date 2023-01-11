@@ -2,15 +2,10 @@
 
 namespace steinmb\scanner;
 
-final class Scanner {
+final readonly class Scanner {
 
-    private $playlist;
-    private $sequence;
-
-    public function __construct(Playlist $playlist, array $sequence)
+    public function __construct(private Playlist $playlist, private array $sequence)
     {
-        $this->playlist = $playlist;
-        $this->sequence = $sequence;
     }
 
     private function trackList(): array
@@ -56,7 +51,7 @@ final class Scanner {
         $list = $tracks->trackListFlatten();
         $pattern = implode(',', $this->sequence);
 
-        if (false !== strpos($list, $pattern)) {
+        if (str_contains($list, $pattern)) {
             return 1;
         }
 
